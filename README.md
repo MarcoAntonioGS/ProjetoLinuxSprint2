@@ -21,7 +21,7 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
 - Configurar o security group para permitir a conexão de HTTP na porta 80 
 
 ## Passo a Passo do Projeto
-  ### Coloque esses comandos na politica do seu Bucket
+  ### Coloque esses comandos na política do seu Bucket
   ```
   {
   "Version": "2012-10-17",
