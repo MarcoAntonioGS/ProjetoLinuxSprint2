@@ -2,25 +2,43 @@
 Este projeto contém um script para monitoramento do serviço Nginx em um ambiente Linux. O script verifica periodicamente o status do serviço e armazena logs localmente, além de enviá-los para um bucket S3 na AWS.
 
 ## Funcionalidades
-- Verificação do status do serviço Nginx.
-- Registro de logs de status localmente.
-- Envio dos logs para um bucket S3 configurado.
-- Gerenciamento básico de permissões e limpeza de logs antigos.
+- Verificação do status do serviço Nginx
+- Registro de logs de status localmente
+- Envio dos logs para um bucket S3 configurado
+- Gerenciamento básico de permissões e limpeza de logs antigos
 
 ## Tecnologias usadas 
-- AWS 
+- Amazon EC2
+- Amazon Systems Manager 
 - AMI Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
 - Amazon S3
 - Nginx
-- Cron
-
+  
 ## Pré Requisitos 
-- Criar um Bucket S3
-- Criar uma IAM role com AmazonS3FullAccess
-- Criar uma intancia Ubuntu com a IAM role
-- Configurar as regras de entrada para aceitar HTTP porta 80
+- Crie uma IAM role do tipo AWS service EC2 com as políticas de permissões AmazonS3FullAccess e AmazonSSMManagedInstanceCore
+- Criar um bucket padrão no Amazon S3
+- Criar uma instância Ubuntu Server 24.04 LTS (HVM), SSD Volume Type com a IAM role criada e com um endereço de ip público 
+- Configurar o security group para permitir a conexão de HTTP na porta 80 
 
 ## Passo a Passo do Projeto
+  ### Coloque esses comandos na politica do seu Bucket
+  ```
+  {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::seu-bucket-s3/*",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:role/nome-da-role"
+      }
+    }
+  ]
+}
+```
+### Se conectar na instâcia no console AWS com o session manager
+
 ### Instalar o Nginx
 ```
 $sudo apt update -y
@@ -108,23 +126,16 @@ $sudo systemctl start nginx
   Modifique para:
   `* * * * * /usr/local/bin/monitor_nginx.sh`
   
-  ### Coloque esses comandos na politica Bucket
-  ```
-  {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::seu-bucket-s3/*",
-      "Principal": {
-        "AWS": "arn:aws:iam::123456789012:role/nome-da-role"
-      }
-    }
-  ]
-}
+## Versinamento com o git
 ```
-## Clone o Repositório para o seu servidor
+sudo apt update
+sudo apt install git -y
+cd /usr/local/bin
+sudo git init
+sudo git add monitor_nginx.sh
+sudo git commit -m "Adicionando script de monitoramento Nginx"
+```
+### Clone o Repositório para o seu servidor
 `git clone https://github.com/MarcoAntonioGS/ProjetoLinuxSprint2.git`
 
 
