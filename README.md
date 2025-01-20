@@ -124,6 +124,8 @@ $sudo systemctl start nginx
   ]
 }
 ```
+## Clone o Repositório para o seu servidor
+`git clone https://github.com/MarcoAntonioGS/ProjetoLinuxSprint2.git`
 
 
 
