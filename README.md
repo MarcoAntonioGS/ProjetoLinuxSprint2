@@ -40,7 +40,7 @@ Adicione o seguinte conteúdo ao script:
 `LOG_DIR="/var/log/nginx-monitor"`
 `ONLINE_LOG="$LOG_DIR/online.log"`
 OFFLINE_LOG="$LOG_DIR/offline.log"
-BUCKET_NAME="mybucketuol2025"
+BUCKET_NAME="Seu-Bucket"
 
 # Cria o diretório de log caso não exista
 mkdir -p "$LOG_DIR"
