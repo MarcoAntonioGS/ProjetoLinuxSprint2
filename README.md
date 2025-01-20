@@ -9,7 +9,8 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
 
 ## Tecnologias usadas 
 - Amazon EC2
-- Amazon Systems Manager 
+- Amazon Systems Manager
+- AWS IAM
 - AMI Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
 - Amazon S3
 - Nginx
@@ -18,7 +19,8 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
 - Crie uma IAM role do tipo AWS service EC2 com as políticas de permissões AmazonS3FullAccess e AmazonSSMManagedInstanceCore
 - Criar um bucket padrão no Amazon S3
 - Criar uma instância Ubuntu Server 24.04 LTS (HVM), SSD Volume Type com a IAM role criada e com um endereço de ip público 
-- Configurar o security group para permitir a conexão HTTP na porta 80 
+- Configurar o security group para permitir a conexão HTTP na porta 80
+- Configurar o gateway de internet e a tabela de rotas para permitir a conexão com a internet, se ainda não tiver configurado
 
 ## Passo a Passo do Projeto
   ### Coloque esses comandos na política do seu Bucket
@@ -43,8 +45,11 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
 ```
 $sudo apt update -y
 $sudo apt install nginx -y
+$sudo systemctl enable nginx
+```
+### Verificar se o nginx está rodando
+```
 $sudo systemctl start nginx
-$sudo systemctl enable nginx`
 $sudo systemctl status nginx
 ```
 ### Criar o Script de Validação do Serviço Nginx
