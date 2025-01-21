@@ -39,7 +39,7 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
   ]
 }
 ```
--Coloque a ARN do seu Bucket e role
+- Coloque a ARN do seu Bucket e role
 
 ### Se conectar na instâcia no console AWS com o session manager
 - Selecione a instância e depois clique em Conectar
