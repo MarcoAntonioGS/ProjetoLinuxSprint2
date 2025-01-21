@@ -20,7 +20,7 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
 - Criar um bucket padrão no Amazon S3
 - Criar uma instância Ubuntu Server 24.04 LTS (HVM), SSD Volume Type t2.micro com a IAM role criada e com um endereço de ip público 
 - Configurar o security group para permitir a conexão HTTP na porta 80 com o seu ip
-- Configurar o gateway de internet e a tabela de rotas para permitir a conexão com a internet, se ainda não estiver configurado
+- Configurar o gateway de internet e a tabela de rotas para permitir a conexão com a internet
 
 ## Passo a Passo do Projeto
   ### Coloque esses comandos na política do seu Bucket
