@@ -39,6 +39,8 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
   ]
 }
 ```
+-Coloque a ARN do seu Bucket e role
+
 ### Se conectar na instâcia no console AWS com o session manager
 - Selecione a instância e depois clique em Conectar
 - Clique em Gerenciador de Sessões e depois em Conectar
@@ -95,6 +97,8 @@ fi
 # Exibe a mensagem apenas uma vez no terminal
 echo "$MENSAGEM"
 ```
+- Em `BUCKET_NAME=` coloque o nome do seu bucket
+  
 ### Tornar o script executável:
 `$sudo chmod +x /usr/local/bin/monitor_nginx.sh`
 
