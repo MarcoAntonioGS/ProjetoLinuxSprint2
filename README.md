@@ -16,7 +16,7 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
 - Nginx
   
 ## Pré Requisitos 
-- Crie uma IAM role do tipo AWS service EC2 com as políticas de permissões AmazonS3FullAccess e AmazonSSMManagedInstanceCore
+- Criar uma IAM role do tipo AWS service EC2 com as políticas de permissões AmazonS3FullAccess e AmazonSSMManagedInstanceCore
 - Criar um bucket padrão no Amazon S3
 - Criar uma instância Ubuntu Server 24.04 LTS (HVM), SSD Volume Type t2.micro com a IAM role criada e com um endereço de ip público 
 - Configurar o security group para permitir a conexão HTTP na porta 80 com o seu ip
