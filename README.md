@@ -21,9 +21,7 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
 - Criar uma instância Ubuntu Server 24.04 LTS (HVM), SSD Volume Type t2.micro com a IAM role criada e com um endereço de ip público 
 - Configurar o security group para permitir a conexão HTTP na porta 80 com o seu ip
 - Configurar o gateway de internet e a tabela de rotas para permitir a conexão com a internet
-
-## Passo a Passo do Projeto
-  ### Coloque esses comandos na política do seu Bucket
+-  Coloque esses comandos na política do seu Bucket
   ```
   {
   "Version": "2012-10-17",
@@ -40,6 +38,9 @@ Este projeto contém um script para monitoramento do serviço Nginx em um ambien
 }
 ```
 - Coloque a ARN do seu Bucket e role
+
+
+## Passo a Passo do Projeto
 
 ### Se conectar na instâcia no console AWS com o session manager
 - Selecione a instância e depois clique em Conectar
